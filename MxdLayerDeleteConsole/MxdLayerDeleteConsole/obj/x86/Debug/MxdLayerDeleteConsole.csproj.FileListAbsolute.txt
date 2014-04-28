@@ -1,0 +1,7 @@
+c:\users\shaycraft\documents\visual studio 2010\Projects\MxdLayerDeleteConsole\MxdLayerDeleteConsole\bin\Debug\MxdLayerDeleteConsole.exe
+c:\users\shaycraft\documents\visual studio 2010\Projects\MxdLayerDeleteConsole\MxdLayerDeleteConsole\bin\Debug\MxdLayerDeleteConsole.pdb
+c:\users\shaycraft\documents\visual studio 2010\Projects\MxdLayerDeleteConsole\MxdLayerDeleteConsole\obj\x86\Debug\MxdLayerDeleteConsole.csprojResolveAssemblyReference.cache
+c:\users\shaycraft\documents\visual studio 2010\Projects\MxdLayerDeleteConsole\MxdLayerDeleteConsole\obj\x86\Debug\MxdLayerDeleteConsole.exe
+c:\users\shaycraft\documents\visual studio 2010\Projects\MxdLayerDeleteConsole\MxdLayerDeleteConsole\obj\x86\Debug\MxdLayerDeleteConsole.pdb
+C:\Users\shaycraft\Documents\GitHub\tcowork\MxdLayerDeleteConsole\MxdLayerDeleteConsole\obj\x86\Debug\MxdLayerDeleteConsole.exe
+C:\Users\shaycraft\Documents\GitHub\tcowork\MxdLayerDeleteConsole\MxdLayerDeleteConsole\obj\x86\Debug\MxdLayerDeleteConsole.pdb
