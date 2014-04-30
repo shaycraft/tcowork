@@ -20,7 +20,7 @@ namespace EnumTest
 
         object System.Collections.IEnumerator.Current
         {
-            get { throw new NotImplementedException(); }
+            get { return this; }
         }
 
         public bool MoveNext()
@@ -97,7 +97,7 @@ namespace EnumTest
 
         public IOrderedEnumerable<int> CreateOrderedEnumerable<TKey>(Func<int, TKey> keySelector, IComparer<TKey> comparer, bool descending)
         {
-            throw new NotImplementedException();
+            return CreateOrderedEnumerable<int>(x => _myEnumerator.Current, Comparer<int>.Default, false);
         }
     }
 
@@ -107,6 +107,15 @@ namespace EnumTest
         {
             int i = 0;
             foreach (var item in eclass)
+            {
+                Console.WriteLine(++i + ", item is " + item);
+            }
+        }
+         
+        public static void printEnum(IEnumerable<int> list)
+        {
+            int i = 0;
+            foreach (var item in list)
             {
                 Console.WriteLine(++i + ", item is " + item);
             }
@@ -127,6 +136,8 @@ namespace EnumTest
             Console.WriteLine("Now sorting...");
             var single = _myEnum.Where(x => x == -2).Single();
             Console.WriteLine("Got " + single);
+            var sorted = _myEnum.OrderBy(x => x);
+            printEnum(sorted);
         }
     }
 }
