@@ -5,6 +5,8 @@
 int main(int argc, char **argv)
 {
 	char *line;
+	GeoIP *gi;
+	const char *returned_country;
 
 	line = malloc(2000*sizeof(char));	
 
@@ -26,7 +28,9 @@ int main(int argc, char **argv)
 
 	while (fscanf(fp, "%s", line) != EOF)
 	{
-		
+		gi = GeoIP_open("/usr/local/share/GeoIP/GeoIP.dat", GEOIP_STANDARD | GEOIP_CHECK_CACHE);
+		returned_country = GeoIP_country_code_by_addr(gi, line);	
+		printf("ip = %s, country = %s\n", line, returned_country);
 	}
 
 	fclose(fp);
