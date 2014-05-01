@@ -26,11 +26,12 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 
+	printf("addr,code\n");
 	while (fscanf(fp, "%s", line) != EOF)
 	{
 		gi = GeoIP_open("/usr/local/share/GeoIP/GeoIP.dat", GEOIP_STANDARD | GEOIP_CHECK_CACHE);
 		returned_country = GeoIP_country_code_by_addr(gi, line);	
-		printf("ip = %s, country = %s\n", line, returned_country);
+		printf("%s,%s\n", line, returned_country);
 	}
 
 	fclose(fp);
