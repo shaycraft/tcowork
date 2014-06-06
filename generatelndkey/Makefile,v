@@ -1,0 +1,31 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2012.04.12.22.18.25;	author shaycraft;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@generatelndkey: generatelndkey.o
+	g++ -Wall generatelndkey.o -o generatelndkey
+
+generatelndkey.o: generatelndkey.cpp
+	g++ -Wall -c generatelndkey.cpp
+
+clean:
+	rm -f *.o generatelndkey
+@
