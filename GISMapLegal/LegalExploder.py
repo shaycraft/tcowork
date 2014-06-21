@@ -7,7 +7,20 @@ def explodetoarray(str_legal):
 
 
 def explode_single_array(s):
+    land_grid = {}  # this should be a 4x4 multi-array
+    divs = []  # can use lists as stacks, see https://docs.python.org/2/tutorial/datastructures.html
+    quarters = {}
+    sb_legal_out = {}
+
+    idx = 0
+    for i in s:
+        print i
+        if i == '/':
+            divs.append(s[idx+1])
+            print s[idx+1]
+        idx = idx + 1
+
+    print divs
 
 
-
-explodetoarray("NW/4,S/2")
+explode_single_array('NW/4')
