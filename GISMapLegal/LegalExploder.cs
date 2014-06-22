@@ -16,17 +16,6 @@ namespace TCO
             strLegal = s;
         }
 
-        public string[] ExplodeToArray()
-        {
-            List<string> legalOut = new List<string>();
-            string[] legalList = strLegal.Split(',');
-            for (int i = 0; i < legalList.Length; i++)
-            {
-                legalOut.AddRange(ExplodeSingleArray(legalList[i]));
-            }
-            return legalOut.ToArray();
-        }
-
         private string[] ExplodeSingleArray(string s)
         {
             bool[,] landGrid = new bool[4, 4];
