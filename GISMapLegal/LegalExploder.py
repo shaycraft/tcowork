@@ -1,12 +1,6 @@
 quarter_names = [[]]
 
 
-def explode_to_array(str_legal):
-    legalout = []
-    legal_list = str_legal.split(',')
-    for i in range(0, len(legal_list)):
-        legalout.append(explode_single_array(legal_list[i]))
-
 def set_grid(grid, org_x, org_y, len_x, len_y):
     for i in range(org_x, org_x + len_x):
         for j in range(org_y, org_y + len_y):
@@ -76,11 +70,11 @@ def grid_calc(grid, org_x, org_y, len_x, len_y, divs, quarters):
         set_grid(grid, org_x, org_y, len_x, len_y)
 
 
-def explode_single_array(s):
-    land_grid = [[]]  # this should be a 4x4 multi-array
+def explode_single(s):
     land_grid = [[0 for x in xrange(4)] for x in xrange(4)]
     divs = []  # can use lists as stacks, see https://docs.python.org/2/tutorial/datastructures.html
     quarters = []
+    sb_legal_out = []
 
     idx = 0
     for i in s:
@@ -95,13 +89,16 @@ def explode_single_array(s):
         idx += 1
 
     grid_calc(land_grid, 0, 0, 4, 4, divs, quarters)
-    print land_grid
-    #quarter_names = [['' for x in xrange(4)] for x in xrange(4)]
-    #print quarter_names
-    #print land_grid
 
     initialize_quarter_names(0, 0, 4, 4, [])
-    print quarter_names
+
+    #print quarter_names
+    for i in range(0, 4):
+        for j in range(0, 4):
+            if land_grid[i][j] == True:
+                sb_legal_out.append(quarter_names[i][j])
+
+    return ','.join(sb_legal_out)
 
 
 def initialize_quarter_names(org_x, org_y, len_x, len_y, quarters):
@@ -130,5 +127,15 @@ def initialize_quarter_names(org_x, org_y, len_x, len_y, quarters):
         initialize_quarter_names(org_x + len_x, org_y, len_x, len_y, se)
 
 
+def explode(str_legal):
+    legal_out = []
+    legal_list = [x.strip() for x in str_legal.split(',')]
+    print legal_list
+    for s in legal_list:
+        legal_out.append(explode_single(s))
+
+    print legal_out
+
+
 quarter_names = [['' for z in xrange(4)] for z in xrange(4)]
-explode_single_array('NW/4')
+explode("N/2, N/2SW/4")
