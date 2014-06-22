@@ -1,3 +1,6 @@
+quarter_names = [[]]
+
+
 def explode_to_array(str_legal):
     legalout = []
     legal_list = str_legal.split(',')
@@ -92,7 +95,40 @@ def explode_single_array(s):
         idx += 1
 
     grid_calc(land_grid, 0, 0, 4, 4, divs, quarters)
+    print land_grid
+    #quarter_names = [['' for x in xrange(4)] for x in xrange(4)]
+    #print quarter_names
     #print land_grid
 
+    initialize_quarter_names(0, 0, 4, 4, [])
+    print quarter_names
 
+
+def initialize_quarter_names(org_x, org_y, len_x, len_y, quarters):
+    if len_x == 1 and len_y == 1:
+        sb = ''
+        while len(quarters) > 0:
+            sb = sb + quarters.pop()
+        quarter_names[org_x][org_y] = sb
+    else:
+        nw = list(quarters)  # the colon is needed to slice the list, as otherwise it would be an assignment by reference
+        ne = list(quarters)
+        sw = list(quarters)
+        se = list(quarters)
+
+        nw.append('NW')
+        ne.append('NE')
+        sw.append('SW')
+        se.append('SE')
+
+        len_x /= 2
+        len_y /= 2
+        
+        initialize_quarter_names(org_x, org_y + len_y, len_x, len_y, nw)
+        initialize_quarter_names(org_x + len_x, org_y + len_y, len_x, len_y, ne)
+        initialize_quarter_names(org_x, org_y, len_x, len_y, sw)
+        initialize_quarter_names(org_x + len_x, org_y, len_x, len_y, se)
+
+
+quarter_names = [['' for z in xrange(4)] for z in xrange(4)]
 explode_single_array('NW/4')
