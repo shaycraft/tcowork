@@ -66,7 +66,6 @@ def grid_calc(grid, org_x, org_y, len_x, len_y, divs, quarters):
                 nlen_y = len_y / 2
         grid_calc(grid, norg_x, norg_y, nlen_x, nlen_y, divs, quarters)
     else:
-        #print ' org_x = {0}, org_y = {1}, len_x = {2}, len_y = {3}'.format(org_x,org_y, len_x, len_y)
         set_grid(grid, org_x, org_y, len_x, len_y)
 
 
@@ -98,7 +97,8 @@ def explode_single(s):
             if land_grid[i][j] == True:
                 sb_legal_out.append(quarter_names[i][j])
 
-    return ','.join(sb_legal_out)
+    #return ','.join(sb_legal_out)
+    return sb_legal_out
 
 
 def initialize_quarter_names(org_x, org_y, len_x, len_y, quarters):
@@ -130,12 +130,12 @@ def initialize_quarter_names(org_x, org_y, len_x, len_y, quarters):
 def explode(str_legal):
     legal_out = []
     legal_list = [x.strip() for x in str_legal.split(',')]
-    print legal_list
-    for s in legal_list:
-        legal_out.append(explode_single(s))
 
-    print legal_out
+    for s in legal_list:
+        legal_out += explode_single(s)
+
+    return legal_out
 
 
 quarter_names = [['' for z in xrange(4)] for z in xrange(4)]
-explode("N/2, N/2SW/4")
+print explode("N/2, N/2SW/4")
