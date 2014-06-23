@@ -87,7 +87,9 @@ def explode_single(s):
                 quarters.append(s[idx-2: idx])
         idx += 1
 
-    grid_calc(land_grid, 0, 0, 4, 4, divs, quarters)
+    if (len(divs) > 0 and len(quarters) > 0) or s == "ALL":
+        print 'calling grid_cal'
+        grid_calc(land_grid, 0, 0, 4, 4, divs, quarters)
 
     initialize_quarter_names(0, 0, 4, 4, [])
 
@@ -97,7 +99,6 @@ def explode_single(s):
             if land_grid[i][j] == True:
                 sb_legal_out.append(quarter_names[i][j])
 
-    #return ','.join(sb_legal_out)
     return sb_legal_out
 
 
@@ -138,4 +139,4 @@ def explode(str_legal):
 
 
 quarter_names = [['' for z in xrange(4)] for z in xrange(4)]
-print explode("N/2, N/2SW/4")
+print explode("L1,L2,SE/4")
