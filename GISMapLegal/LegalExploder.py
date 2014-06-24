@@ -88,7 +88,6 @@ def explode_single(s):
         idx += 1
 
     if (len(divs) > 0 and len(quarters) > 0) or s == "ALL":
-        print 'calling grid_cal'
         grid_calc(land_grid, 0, 0, 4, 4, divs, quarters)
 
     initialize_quarter_names(0, 0, 4, 4, [])
