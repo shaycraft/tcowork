@@ -67,5 +67,3 @@ with open(argv[1]) as csvfile:
             print '{0},"{1}","{2}","{3}","{4}",{5}'.format(section_id, legal, unit_size, formation, link, lkey)
 
         count += 1
-
-    print generate_lndkey(10, 'N', 5, 'W', 6, 5, 'L2', 'CO')
