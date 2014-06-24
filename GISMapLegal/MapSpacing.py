@@ -7,7 +7,7 @@ from LegalExploder import *
 from Lndkey import *
 
 if len(argv) != 2:
-    sys.stderr.write('Usage: {0} <file>'.format(argv[0]))
+    sys.stderr.write('Usage: {0} <file>\n'.format(argv[0]))
     sys.exit(1)
 
 #sample line
