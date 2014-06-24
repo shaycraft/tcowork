@@ -53,12 +53,8 @@ with open(argv[1]) as csvfile:
                 tmp_legal = 'L1,L2,L3,L4,S/2N/2,S/2'
             elif section == 6:
                 tmp_legal = 'L1,L2,L3,L4,L5,L6,L7,SE/4NW/4,E/2SW/4,S/2NE/4,SE/4'
-            elif section in [7, 18, 19, 30]:
+            elif section in [7, 18, 19, 30, 31]:
                 tmp_legal = 'L1,L2,L3,L4,E/2W/2,E/2'
-            elif section == 31:
-                tmp_legal = 'L1,L2,L3,L4,L5,L6,L7,NE/4SW/4,E/2NW/4,NE/4,N/2SE/4'
-            elif 32 <= section <= 36:
-                tmp_legal = 'L1,L2,L3,L4,N/2S/2,N/2'
 
         legal_exploded = explode(tmp_legal)
 
