@@ -8,7 +8,7 @@ def generate_lndkey(township, tdir, rnge, rdir, meridian, section, qq, state):
     tmp_lndkey.append('{0:03d}0{1}'.format(rnge, rdir))
     tmp_lndkey.append('0SN{0:02d}0'.format(section))
 
-    qq = qq.replace('/', '').replace('2', '').replace('4', '')
+    qq = qq.replace('/2', '').replace('/4', '')
     if any(qq in x for x in ['L1', 'L2', 'L3', 'L4', 'L5', 'L6']):
         tmp_lndkey.append(qq)
     else:

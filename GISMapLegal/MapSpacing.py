@@ -47,9 +47,25 @@ with open(argv[1]) as csvfile:
         except AttributeError:
             sys.stderr.write("NoneError on line {0}\n".format(count))
 
-        legal_exploded = explode(row[5])
+        tmp_legal = row[5]
+        if tmp_legal == 'ALL':
+            if 1 <= section < 6:
+                tmp_legal = 'L1,L2,L3,L4,S/2N/2,S/2'
+            elif section == 6:
+                tmp_legal = 'L1,L2,L3,L4,L5,L6,L7,SE/4NW/4,E/2SW/4,S/2NE/4,SE/4'
+            elif section in [7, 18, 19, 30]:
+                tmp_legal = 'L1,L2,L3,L4,E/2W/2,E/2'
+            elif section == 31:
+                tmp_legal = 'L1,L2,L3,L4,L5,L6,L7,NE/4SW/4,E/2NW/4,NE/4,N/2SE/4'
+            elif 32 <= section <= 36:
+                tmp_legal = 'L1,L2,L3,L4,N/2S/2,N/2'
+
+        legal_exploded = explode(tmp_legal)
+
         for x in legal_exploded:
             lkey = generate_lndkey(township, tdir, rnge, rdir, 6, section, x, 'CO')
             print '{0},"{1}","{2}","{3}","{4}",{5}'.format(section_id, legal, unit_size, formation, link, lkey)
 
         count += 1
+
+    print generate_lndkey(10, 'N', 5, 'W', 6, 5, 'L2', 'CO')
