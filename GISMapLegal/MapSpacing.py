@@ -38,4 +38,4 @@ with open(argv[1]) as csvfile:
         legal_exploded = explode(row[5])
         for x in legal_exploded:
             lkey = generate_lndkey(township, tdir, rnge, rdir, meridian, section, x, 'CO')
-            print '{0},{1},{2},{3},"{4}",{5}'.format(section_id, legal, unit_size, formation, link, x)
+            print '{0},{1},{2},{3},"{4}",{5}'.format(section_id, legal, unit_size, formation, link, lkey)
