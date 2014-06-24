@@ -38,7 +38,7 @@ with open(argv[1]) as csvfile:
             meridian = int(row[4])
         except ValueError:
             sys.stderr.write("ValueError on line {0}\n")
-            sys.stderr.writable(row)
+            sys.stderr.write(row)
 
         legal_exploded = explode(row[5])
         for x in legal_exploded:
