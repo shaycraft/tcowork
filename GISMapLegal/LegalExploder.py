@@ -132,10 +132,14 @@ def explode(str_legal):
     legal_list = [x.strip() for x in str_legal.split(',')]
 
     for s in legal_list:
-        legal_out += explode_single(s)
+        if any(s in x for x in ['L1', 'L2', 'L3', 'L4', 'L5', 'L6']):
+            legal_out.append(s)
+        else:
+            legal_out += explode_single(s)
 
     return legal_out
 
 
 quarter_names = [['' for z in xrange(4)] for z in xrange(4)]
-print explode("L1,L2,SE/4")
+#print explode("L1,L2,SE/4")
+#print explode("L1,E/2W/2")
