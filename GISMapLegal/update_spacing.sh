@@ -33,7 +33,7 @@ psql -d cogcc -c "DELETE FROM staging.spacing"
 psql -d cogcc -c "\copy staging.spacing(section_id,legal,unit_size,formation,link,lkey) FROM '$TMP/spacing_exploded.csv' WITH DELIMITER AS ',' CSV HEADER;"
 psql -d cogcc -c "vacuum analyze staging.spacing"
 
-pgsql2shp -f $TMP/co_spacing.shp -P samcool -g geom cogcc "`cat joinquery.sql`"
+pgsql2shp -f $TMP/co_spacing.shp -g geom cogcc "`cat joinquery.sql`"
 zip $TMP/co_spacing.zip $TMP/co_spacing.*
 
 echo "Please see attached file" | mail -s "COGCC spacing file" -a $TMP/co_spacing.zip "`whoami`@tcolandservices.com"
